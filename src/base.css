@@ -19,6 +19,11 @@ body {
   background: #0dffdf;
 }
 
+*:focus {
+  outline: 0;
+  border: 1px solid #0dffdf;
+}
+
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   font-family: "Source Code Pro", "Lucida Console", Monaco, monospace;

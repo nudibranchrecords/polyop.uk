@@ -7,6 +7,7 @@ const navHeight = '3rem'
 const Nav = styled.nav`
   height: ${navHeight};
   position: relative;
+  margin-bottom: 1rem;
   
   ul {
     list-style: none;
