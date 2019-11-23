@@ -30,10 +30,7 @@ const Video = ({ url, width, height }) => (
   <Wrapper>
     <Inner>
       <div>
-        <iframe
-          src={url} width={width} height={height} frameBorder='0'
-          webkitallowfullscreen mozallowfullscreen allowFullScreen
-        />
+        <iframe src={url} width={width} height={height} frameBorder='0' allowFullScreen />
       </div>
     </Inner>
   </Wrapper>
