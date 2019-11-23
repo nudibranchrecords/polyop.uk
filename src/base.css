@@ -10,8 +10,25 @@ body {
   background: black;
   color: white;
   font-family: sans-serif;
+  letter-spacing: 0.05em;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0;
+}
+
+::selection {
+  background: #0dffdf;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  font-family: "Source Code Pro", "Lucida Console", Monaco, monospace;
 }
 
 a { 
   color: white;
+}
+
+p {
+  margin-top: 0;
+  line-height: 1.5;
 }
