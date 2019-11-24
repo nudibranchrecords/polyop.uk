@@ -4,6 +4,7 @@ import Contain from './Contain'
 import Video from './Video'
 import styled from 'styled-components'
 import { GlobalContext } from './GlobalContext'
+import { useWinSize } from '../utils/hooks'
 
 const Blurb = styled.div`
   text-align: center;
@@ -17,18 +18,19 @@ const Main = styled.div(props => `
 
 const HomePage = () => {
   const headerEl = useRef()
+  const winSize = useWinSize()
 
   const state = useContext(GlobalContext)
   const [isHidden, setIsHidden] = useState(state.isPlayingIntro)
 
   useEffect(() => {
+    headerEl.current.style.transform = 'translateY(0px)'
     if (state.isPlayingIntro) {
       const bbox = headerEl.current.getBoundingClientRect()
-      const cy = window.innerHeight / 2
+      const cy = winSize.h / 2
       headerEl.current.style.transform = `translateY(${cy - bbox.y - (bbox.height / 2)}px)`
     } else {
       headerEl.current.style.transition = '0.3s'
-      headerEl.current.style.transform = 'translateY(0px)'
 
       setTimeout(() => {
         setIsHidden(false)
