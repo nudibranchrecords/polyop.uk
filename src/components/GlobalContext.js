@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 
 export const GlobalContext = React.createContext({
   isPlayingIntro: true,
@@ -25,3 +26,7 @@ export const GlobalContextProvider = ({ children }) => {
 }
 
 export default GlobalContextProvider
+
+GlobalContextProvider.propTypes = {
+  children: PropTypes.node,
+}
