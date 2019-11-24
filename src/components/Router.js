@@ -9,10 +9,10 @@ import NotFoundPage from './NotFoundPage'
 import Header from './Header'
 
 // Wrap the component in main page layout
-const $ = Component => () =>
+const $ = PageComponent => () =>
   <>
     <Header />
-    <Component />
+    <PageComponent />
   </>
 
 export default class Router extends SimpleReactRouter {

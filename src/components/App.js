@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { GlobalContextProvider } from './GlobalContext'
 import Router from './Router'
+import Background from './Background'
 
 const App = () => {
   const setIsPlayingIntro = (isPlayingIntro) => {
@@ -16,6 +17,7 @@ const App = () => {
 
   return (
     <GlobalContextProvider value={state}>
+      <Background />
       <Router />
     </GlobalContextProvider>
   )
