@@ -2,6 +2,11 @@ import React, { useState } from 'react'
 import { GlobalContextProvider } from './GlobalContext'
 import Router from './Router'
 import Background from './Background'
+import styled from 'styled-components'
+
+const Content = styled.div`
+  position: relative;
+`
 
 const App = () => {
   const setIsPlayingIntro = (isPlayingIntro) => {
@@ -18,7 +23,7 @@ const App = () => {
   return (
     <GlobalContextProvider value={state}>
       <Background />
-      <Router />
+      <Content><Router /></Content>
     </GlobalContextProvider>
   )
 }

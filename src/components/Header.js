@@ -28,7 +28,6 @@ const Nav = styled.nav`
     width: 100%;
     height: ${navHeightS};
     align-items: center;
-    background: black;
 
     @media ${devices.tablet} {
       height: ${navHeightM};
@@ -57,7 +56,7 @@ const Header = () => {
   return (
     <Nav isHidden={state.isPlayingIntro}>
       <ul>
-        <li><Link href='/'>Home</Link></li>
+        <li id='link_home'><Link href='/'>Home</Link></li>
         <li><Link href='/releases'>Releases</Link></li>
         <li><Link href='/shows'>Shows</Link></li>
         <li><Link href='/about'>About</Link></li>

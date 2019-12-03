@@ -24,17 +24,23 @@ const HomePage = () => {
   const [isHidden, setIsHidden] = useState(state.isPlayingIntro)
 
   useEffect(() => {
+    let isCancelled = false
+
     headerEl.current.style.transform = 'translateY(0px)'
     if (state.isPlayingIntro) {
       const bbox = headerEl.current.getBoundingClientRect()
-      const cy = winSize.h / 2
+      const cy = winSize.height / 2
       headerEl.current.style.transform = `translateY(${cy - bbox.y - (bbox.height / 2)}px)`
     } else {
       headerEl.current.style.transition = '0.3s'
 
       setTimeout(() => {
-        setIsHidden(false)
+        if (!isCancelled) setIsHidden(false)
       }, 1000)
+    }
+
+    return () => {
+      isCancelled = true
     }
   })
 

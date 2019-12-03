@@ -35,10 +35,10 @@ export const useEventListener = (eventName, handler, element = window) => {
 }
 
 export const useWinSize = () => {
-  const [winSize, setWinSize] = useState({ w: window.innerWidth, h: window.innerHeight })
+  const [winSize, setWinSize] = useState({ width: window.innerWidth, height: window.innerHeight })
   const onWinResize = useCallback(
     () => {
-      setWinSize({ w: window.innerWidth, h: window.innerHeight })
+      setWinSize({ width: window.innerWidth, height: window.innerHeight })
     },
   )
   useEventListener('resize', onWinResize)
