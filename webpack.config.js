@@ -31,6 +31,15 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.(glb)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {},
+          },
+        ],
+      },
     ],
   },
   plugins: [
