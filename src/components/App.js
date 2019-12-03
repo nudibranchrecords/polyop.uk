@@ -13,7 +13,7 @@ import AboutPage from './AboutPage'
 import StyleguidePage from './StyleguidePage'
 import NotFoundPage from './NotFoundPage'
 
-const Content = styled(Switch)`
+const Content = styled.div`
   position: relative;
 `
 
@@ -35,24 +35,26 @@ const App = () => {
         <Background />
         <Header />
         <Content>
-          <Route exact path='/'>
-            <HomePage />
-          </Route>
-          <Route path='/releases'>
-            <ReleasesPage />
-          </Route>
-          <Route path='/shows'>
-            <ShowsPage />
-          </Route>
-          <Route path='/about'>
-            <AboutPage />
-          </Route>
-          <Route path='/styleguide'>
-            <StyleguidePage />
-          </Route>
-          <Route path='*'>
-            <NotFoundPage />
-          </Route>
+          <Switch>
+            <Route exact path='/'>
+              <HomePage />
+            </Route>
+            <Route path='/releases'>
+              <ReleasesPage />
+            </Route>
+            <Route path='/shows'>
+              <ShowsPage />
+            </Route>
+            <Route path='/about'>
+              <AboutPage />
+            </Route>
+            <Route path='/styleguide'>
+              <StyleguidePage />
+            </Route>
+            <Route path='*'>
+              <NotFoundPage />
+            </Route>
+          </Switch>
         </Content>
       </GlobalContextProvider>
     </Router>

@@ -18,12 +18,6 @@ const Background = (props) => {
   const canvasContainer = useRef()
   const state = useContext(GlobalContext)
 
-  // Will only fire on first render
-  useEffect(() => {
-    canvasContainer.current.appendChild(background.domElement)
-    background.animate()
-  }, [])
-
   useEffect(() => {
     const { width, height } = winSize
     background.resize({ width, height })
@@ -35,10 +29,18 @@ const Background = (props) => {
       const bbox = el.getBoundingClientRect()
       const x = ((bbox.left + bbox.width / 2) / window.innerWidth) * 2 - 1
       const y = -((bbox.top + bbox.height / 2) / window.innerHeight) * 2 + 1
+      const duration = state.skipIntro ? 0 : 500
 
-      background.moveToPoint({ x, y })
+      background.moveToPoint({ x, y, duration })
     }
   }, [state.isPlayingIntro])
+
+  useEffect(() => {
+    canvasContainer.current.appendChild(background.domElement)
+    window.requestAnimationFrame(() => {
+      background.show()
+    })
+  }, [])
 
   return (
     <CanvasContainer ref={canvasContainer} />

@@ -16,6 +16,7 @@ export const GlobalContextProvider = ({ children }) => {
 
   const initState = {
     isPlayingIntro: location.pathname === '/',
+    skipIntro: location.pathname !== '/',
     setIsPlayingIntro,
   }
 

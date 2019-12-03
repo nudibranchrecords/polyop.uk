@@ -1,4 +1,5 @@
 import * as THREE from 'three'
+import TWEEN from '@tweenjs/tween.js'
 
 const renderer = new THREE.WebGLRenderer({ alpha: true })
 const scene = new THREE.Scene()
@@ -18,11 +19,22 @@ scene.add(cube)
 scene.add(hitPlane)
 camera.position.z = 5
 
+cube.visible = false
+
+const effectPos = {
+  x: 0,
+  y: 0,
+  z: 0,
+}
+
 export const domElement = renderer.domElement
 
-export const animate = () => {
+const animate = () => {
   window.requestAnimationFrame(animate)
+  TWEEN.update()
+
   renderer.render(scene, camera)
+  cube.position.set(effectPos.x, effectPos.y, effectPos.z)
 }
 
 export const resize = ({ width, height }) => {
@@ -31,14 +43,25 @@ export const resize = ({ width, height }) => {
   renderer.setSize(width, height)
 }
 
-export const moveToPoint = ({ x, y }) => {
+export const moveToPoint = ({ x, y, duration = 500 }) => {
   const point = new THREE.Vector2()
   point.x = x
   point.y = y
   raycaster.setFromCamera(point, camera)
 
-  const intersects = raycaster.intersectObject(hitPlane)
-  if (intersects[0]) {
-    cube.position.copy(intersects[0].point)
+  const interesects = raycaster.intersectObject(hitPlane)[0]
+
+  if (interesects) {
+    const newPos = interesects.point
+    new TWEEN.Tween(effectPos)
+      .to({ x: newPos.x, y: newPos.y, z: newPos.z }, duration)
+      .easing(TWEEN.Easing.Quadratic.Out)
+      .start()
   }
 }
+
+export const show = () => {
+  cube.visible = true
+}
+
+animate()
