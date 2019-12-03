@@ -1,10 +1,19 @@
 import React, { useState } from 'react'
 import { GlobalContextProvider } from './GlobalContext'
-import Router from './Router'
 import Background from './Background'
 import styled from 'styled-components'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import Header from './Header'
 
-const Content = styled.div`
+// Pages
+import HomePage from './HomePage'
+import ReleasesPage from './ReleasesPage'
+import ShowsPage from './ShowsPage'
+import AboutPage from './AboutPage'
+import StyleguidePage from './StyleguidePage'
+import NotFoundPage from './NotFoundPage'
+
+const Content = styled(Switch)`
   position: relative;
 `
 
@@ -22,8 +31,30 @@ const App = () => {
 
   return (
     <GlobalContextProvider value={state}>
-      <Background />
-      <Content><Router /></Content>
+      <Router>
+        <Background />
+        <Header />
+        <Content>
+          <Route exact path='/'>
+            <HomePage />
+          </Route>
+          <Route path='/releases'>
+            <ReleasesPage />
+          </Route>
+          <Route path='/shows'>
+            <ShowsPage />
+          </Route>
+          <Route path='/about'>
+            <AboutPage />
+          </Route>
+          <Route path='/styleguide'>
+            <StyleguidePage />
+          </Route>
+          <Route path='*'>
+            <NotFoundPage />
+          </Route>
+        </Content>
+      </Router>
     </GlobalContextProvider>
   )
 }
