@@ -3,7 +3,7 @@ import titleSvg from '../assets/title.svg'
 import Contain from './Contain'
 import Video from './Video'
 import styled from 'styled-components'
-import { GlobalContext } from './GlobalContext'
+import { GlobalContext } from '../utils/GlobalContext'
 import { useWinSize } from '../utils/hooks'
 
 const Blurb = styled.div`

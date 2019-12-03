@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { devices } from '../utils/globalVars'
-import { GlobalContext } from './GlobalContext'
+import { GlobalContext } from '../utils/GlobalContext'
 
 const navHeightS = '3rem'
 const navHeightM = '5rem'

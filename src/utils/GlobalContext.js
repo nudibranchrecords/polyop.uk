@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import { useLocation } from 'react-router-dom'
 
 export const GlobalContext = React.createContext({
   isPlayingIntro: true,
@@ -11,8 +12,10 @@ export const GlobalContextProvider = ({ children }) => {
     setState({ ...state, isPlayingIntro })
   }
 
+  const location = useLocation()
+
   const initState = {
-    isPlayingIntro: true,
+    isPlayingIntro: location.pathname === '/',
     setIsPlayingIntro,
   }
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { GlobalContextProvider } from './GlobalContext'
+import { GlobalContextProvider } from '../utils/GlobalContext'
 import Background from './Background'
 import styled from 'styled-components'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
@@ -30,8 +30,8 @@ const App = () => {
   const [state, setState] = useState(initState)
 
   return (
-    <GlobalContextProvider value={state}>
-      <Router>
+    <Router>
+      <GlobalContextProvider value={state}>
         <Background />
         <Header />
         <Content>
@@ -54,8 +54,8 @@ const App = () => {
             <NotFoundPage />
           </Route>
         </Content>
-      </Router>
-    </GlobalContextProvider>
+      </GlobalContextProvider>
+    </Router>
   )
 }
 
