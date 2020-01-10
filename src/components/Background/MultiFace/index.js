@@ -7,6 +7,13 @@ import gltfUrl from './creator.glb'
 
 const PI2 = Math.PI * 2
 
+const mouse = new THREE.Vector2()
+
+document.addEventListener('mousemove', event => {
+  mouse.x = (event.clientX / window.innerWidth) * 2 - 1
+  mouse.y = -(event.clientY / window.innerHeight) * 2 + 1
+})
+
 const stoneMat = new THREE.MeshPhongMaterial({
   color: new THREE.Color(0xDDDDDD),
   bumpScale: 0.05,
@@ -61,8 +68,7 @@ const flicker = (obj, mat1, mat2, perm) => {
 export class MultiFace {
   constructor () {
     this.root = new THREE.Group()
-    this.group = new THREE.Object3D()
-    this.root.add(this.group)
+    this.centerPoint = new THREE.Vector3(0, 0, 0)
 
     this.eyeMat = gemMat
     this.mainMat = stoneMat
@@ -84,22 +90,34 @@ export class MultiFace {
 
       updateMats(this.model, stoneMat)
 
-      this.model.children.forEach(obj => {
-        this.pieces.push(obj)
+      for (let i = this.model.children.length - 1; i > -1; i--) {
+        const obj = this.model.children[i]
 
         if (isGem(obj)) {
           obj.material = gemMat
         } else {
           this.mainPieces.push(obj)
         }
+        this.root.attach(obj)
+        this.pieces.push(obj)
 
-        obj.originalPosition = obj.position.clone()
-        obj.vx = Math.random() * 2 - 1
-        obj.vy = Math.random() * 2 - 1
-      })
-      this.mainPieces.reverse()
-
-      this.group.add(this.model)
+        obj.originalPos = obj.position.clone()
+        obj.originalRot = obj.rotation.clone()
+        obj.wildPos = new THREE.Vector3()
+        obj.wildRot = new THREE.Vector3()
+        obj.basePos = new THREE.Vector3()
+        obj.rotPos = new THREE.Vector3()
+        obj.orbitSpd = new THREE.Vector3(
+          Math.random(),
+          Math.random(),
+          Math.random(),
+        )
+        obj.orbitRad = new THREE.Vector3(
+          Math.random(),
+          Math.random(),
+          Math.random(),
+        )
+      }
     })
 
     this.props = {
@@ -223,63 +241,101 @@ export class MultiFace {
     this.resetPieces(p, ...getOffset())
   }
 
-  update (p, t, f) {
-    if (!this.group) return
+  moveToPoint (point) {
+    const offset = new THREE.Vector3()
+    const newPoint = new THREE.Vector3()
 
-    this.shiftZTick += p.shiftZSpeed / 5 * f
-    this.shiftScaleTick += 0.3 * p.scaleSpeed * f
+    this.pieces.forEach((obj, i) => {
+      const { x, y, z } = newPoint.addVectors(
+        point,
+        obj.originalPos,
+      )
 
-    if (!this.tweening) {
-      this.props.pieceRotX += (p.pieceRotSpeedX * 0.5 * f)
-      this.props.pieceRotY += (p.pieceRotSpeedY * 0.5 * f)
-      this.props.pieceRotZ += (p.pieceRotSpeedZ * 0.5 * f)
-    }
+      new TWEEN.Tween(obj.basePos)
+        .to({
+          x, y, z,
+        }, Math.random() * 2000 + 500)
+        .easing(TWEEN.Easing.Back.InOut)
+        .delay(Math.random() * 300)
+        .start()
+    })
 
-    if (p.basePieceScale !== undefined && this.pieces !== undefined) {
-      this.pieces.forEach((obj, i) => {
-        let s = p.basePieceScale + Math.max(Math.abs(Math.sin((this.shiftScaleTick + i))) * p.pieceScale * 5, 0.001)
-        obj.position.z = obj.originalPosition.z + (Math.sin(this.shiftZTick + i) * p.shiftZ * 3)
-        obj.position.x = obj.originalPosition.x + obj.vx * 2 * p.shiftX
-        obj.position.y = obj.originalPosition.y + obj.vy * 2 * p.shiftY
-        if (!isGem(obj)) {
-          obj.rotation.x = this.props.pieceRotX
-          obj.rotation.y = this.props.pieceRotY
-          obj.rotation.z = this.props.pieceRotZ
-          obj.scale.set(s, s, s)
-        } else if (obj.name === 'orb' && p.orbScale !== undefined) {
-          s = Math.max(p.orbScale, 0.001)
-          obj.scale.set(s, s, s)
-        } else if (obj.name === 'eye' && p.eyeScale0 !== undefined) {
-          s = Math.max(p.eyeScale0, 0.001)
-          obj.scale.set(s, s, s)
-        } else if (obj.name === 'eye001' && p.eyeScale1 !== undefined) {
-          s = Math.max(p.eyeScale1, 0.001)
-          obj.scale.set(s, s, s)
-        }
-      })
-    }
+    this.centerPoint.copy(point)
+  }
 
-    const shakeX = (Math.random() * 2 - 1) * p.shakeAmp
-    const shakeY = (Math.random() * 2 - 1) * p.shakeAmp
+  update (p, d, t) {
+    if (!this.model) return
 
-    if (p.shakeAmp !== undefined) {
-      this.group.position.x = shakeX
-      this.group.position.y = shakeY
-    }
+    const orbitSpd = 3
+    const rotSpd = Math.abs(mouse.y) * 3
 
-    if (p.modelScale !== undefined) {
-      const s = Math.max(p.modelScale, 0.001)
-      this.group.scale.set(s, s, s)
-    }
+    this.pieces.forEach((obj, i) => {
+      obj.rotPos.set(
+        Math.sin(t * obj.orbitSpd.x * orbitSpd + i) * obj.orbitRad.x,
+        Math.cos(t * obj.orbitSpd.y * orbitSpd + i) * obj.orbitRad.y,
+        Math.cos(t * obj.orbitSpd.z * orbitSpd + i) * obj.orbitRad.z,
+      )
 
-    if (p.posZ !== undefined) this.group.position.z = p.posZ * this.zRange
+      obj.rotation.x += 0.03 * rotSpd
+      obj.rotation.x += 0.06 * rotSpd
 
-    if (p.rotSpeedX !== undefined) this.props.rotX += p.rotSpeedX * 0.03
-    if (p.rotSpeedY !== undefined) this.props.rotY += p.rotSpeedY * 0.03
-    if (p.rotSpeedZ !== undefined) this.props.rotZ += p.rotSpeedZ * 0.03
+      obj.wildPos.lerpVectors(obj.rotPos, obj.originalPos, (1 - Math.abs(mouse.x)))
+      obj.position.addVectors(obj.wildPos, obj.basePos)
+    })
 
-    this.group.rotation.x = this.props.rotX * PI2
-    this.group.rotation.y = this.props.rotY * PI2 + (p.baseRotY * Math.PI * 2)
-    this.group.rotation.z = this.props.rotZ * PI2
+    // this.shiftZTick += p.shiftZSpeed / 5 * f
+    // this.shiftScaleTick += 0.3 * p.scaleSpeed * f
+
+    // if (!this.tweening) {
+    //   this.props.pieceRotX += (p.pieceRotSpeedX * 0.5 * f)
+    //   this.props.pieceRotY += (p.pieceRotSpeedY * 0.5 * f)
+    //   this.props.pieceRotZ += (p.pieceRotSpeedZ * 0.5 * f)
+    // }
+    // if (p.basePieceScale !== undefined && this.pieces !== undefined) {
+    //   this.pieces.forEach((obj, i) => {
+    //     let s = p.basePieceScale + Math.max(Math.abs(Math.sin((this.shiftScaleTick + i))) * p.pieceScale * 5, 0.001)
+    //     // obj.position.z = obj.originalPosition.z + (Math.sin(this.shiftZTick + i) * p.shiftZ * 3)
+    //     // obj.position.x = obj.originalPosition.x + obj.vx * 2 * p.shiftX
+    //     // obj.position.y = obj.originalPosition.y + obj.vy * 2 * p.shiftY
+    //     if (!isGem(obj)) {
+    //       obj.rotation.x = this.props.pieceRotX
+    //       obj.rotation.y = this.props.pieceRotY
+    //       obj.rotation.z = this.props.pieceRotZ
+    //       obj.scale.set(s, s, s)
+    //     } else if (obj.name === 'orb' && p.orbScale !== undefined) {
+    //       s = Math.max(p.orbScale, 0.001)
+    //       obj.scale.set(s, s, s)
+    //     } else if (obj.name === 'eye' && p.eyeScale0 !== undefined) {
+    //       s = Math.max(p.eyeScale0, 0.001)
+    //       obj.scale.set(s, s, s)
+    //     } else if (obj.name === 'eye001' && p.eyeScale1 !== undefined) {
+    //       s = Math.max(p.eyeScale1, 0.001)
+    //       obj.scale.set(s, s, s)
+    //     }
+    //   })
+    // }
+
+    // const shakeX = (Math.random() * 2 - 1) * p.shakeAmp
+    // const shakeY = (Math.random() * 2 - 1) * p.shakeAmp
+
+    // if (p.shakeAmp !== undefined) {
+    //   this.group.position.x = shakeX
+    //   this.group.position.y = shakeY
+    // }
+
+    // if (p.modelScale !== undefined) {
+    //   const s = Math.max(p.modelScale, 0.001)
+    //   this.group.scale.set(s, s, s)
+    // }
+
+    // if (p.posZ !== undefined) this.group.position.z = p.posZ * this.zRange
+
+    // if (p.rotSpeedX !== undefined) this.props.rotX += p.rotSpeedX * 0.03
+    // if (p.rotSpeedY !== undefined) this.props.rotY += p.rotSpeedY * 0.03
+    // if (p.rotSpeedZ !== undefined) this.props.rotZ += p.rotSpeedZ * 0.03
+
+    // this.group.rotation.x = this.props.rotX * PI2
+    // this.group.rotation.y = this.props.rotY * PI2
+    // this.group.rotation.z = this.props.rotZ * PI2
   }
 }

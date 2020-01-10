@@ -12,6 +12,7 @@ const hitPlane = new THREE.Mesh(planeGeom, planeMat)
 const raycaster = new THREE.Raycaster()
 const multiFace = new MultiFace()
 const light = new THREE.PointLight()
+const clock = new THREE.Clock()
 
 scene.add(light)
 group.add(multiFace.root)
@@ -31,6 +32,24 @@ const effectPos = {
   z: 0,
 }
 
+const params = {
+  shiftZSpeed: 0,
+  rotSpeedX: 0.1,
+  rotSpeedY: 0.2,
+  pieceRotSpeedX: 0.01,
+  pieceRotSpeedY: 0.02,
+  pieceRotSpeedZ: 0,
+  pieceScale: 0.2,
+  basePieceScale: 0,
+  scaleSpeed: 0.2,
+  shiftX: 0.2,
+  shiftY: 0.2,
+  shiftZ: 0.2,
+  orbScale: 1,
+  eyeScale0: 1,
+  eyeScale1: 1,
+}
+
 export const domElement = renderer.domElement
 
 const animate = () => {
@@ -39,6 +58,8 @@ const animate = () => {
 
   renderer.render(scene, camera)
   group.position.set(effectPos.x, effectPos.y, effectPos.z)
+
+  multiFace.update(params, clock.getDelta(), clock.getElapsedTime())
 }
 
 export const resize = ({ width, height }) => {
@@ -57,10 +78,8 @@ export const moveToPoint = ({ x, y, duration = 500 }) => {
 
   if (interesects) {
     const newPos = interesects.point
-    new TWEEN.Tween(effectPos)
-      .to({ x: newPos.x, y: newPos.y, z: newPos.z }, duration)
-      .easing(TWEEN.Easing.Quadratic.Out)
-      .start()
+
+    multiFace.moveToPoint(newPos)
   }
 }
 
