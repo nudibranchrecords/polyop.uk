@@ -4,15 +4,9 @@ import TWEEN from '@tweenjs/tween.js'
 
 import bumpUrl from './bump.jpg'
 import gltfUrl from './creator.glb'
+import { mousePos, mouseVel } from '../mouse'
 
 const PI2 = Math.PI * 2
-
-const mouse = new THREE.Vector2()
-
-document.addEventListener('mousemove', event => {
-  mouse.x = (event.clientX / window.innerWidth) * 2 - 1
-  mouse.y = -(event.clientY / window.innerHeight) * 2 + 1
-})
 
 const stoneMat = new THREE.MeshPhongMaterial({
   color: new THREE.Color(0xDDDDDD),
@@ -129,9 +123,7 @@ export class MultiFace {
       rotZ: 0,
     }
 
-    this.rotX = 0
-    this.rotY = 0
-    this.rotZ = 0
+    this.rotV = new THREE.Vector3()
     this.shiftZ = 0
     this.shiftZTick = 0
     this.shiftScaleTick = 0
@@ -242,7 +234,6 @@ export class MultiFace {
   }
 
   moveToPoint (point) {
-    const offset = new THREE.Vector3()
     const newPoint = new THREE.Vector3()
 
     this.pieces.forEach((obj, i) => {
@@ -266,8 +257,13 @@ export class MultiFace {
   update (p, d, t) {
     if (!this.model) return
 
-    const orbitSpd = 3
-    const rotSpd = Math.abs(mouse.y) * 3
+    this.rotV.add(mouseVel.multiplyScalar(0.005)).multiplyScalar(0.8)
+
+    this.root.rotation.x += this.rotV.x
+    this.root.rotation.y += this.rotV.y
+
+    const orbitSpd = 2
+    const rotSpd = 2 - Math.abs(mousePos.y) * 2
 
     this.pieces.forEach((obj, i) => {
       obj.rotPos.set(
@@ -276,10 +272,14 @@ export class MultiFace {
         Math.cos(t * obj.orbitSpd.z * orbitSpd + i) * obj.orbitRad.z,
       )
 
+      const sc = Math.sin(t + i)
+
+      obj.scale.set(sc, sc, sc)
+
       obj.rotation.x += 0.03 * rotSpd
       obj.rotation.x += 0.06 * rotSpd
 
-      obj.wildPos.lerpVectors(obj.rotPos, obj.originalPos, (1 - Math.abs(mouse.x)))
+      obj.wildPos.lerpVectors(obj.rotPos, obj.originalPos, 1 - Math.exp(Math.abs(mousePos.x), 4))
       obj.position.addVectors(obj.wildPos, obj.basePos)
     })
 
