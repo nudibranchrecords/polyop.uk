@@ -40,3 +40,11 @@ content:
           options: { values: [album, track] },
         }
       - { name: bandcampid, label: Bandcamp ID, type: number }
+  - name: shows
+    label: Shows
+    path: src/shows
+    type: collection
+    fields:
+      - { name: title, label: Title, type: string }
+      - { name: date, label: Date, type: date }
+      - { name: url, label: URL, type: string }
