@@ -1,5 +1,7 @@
 body {
   font-family: sans-serif;
+  background: black;
+  color: white;
 }
 
 .release-list {

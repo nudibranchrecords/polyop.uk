@@ -2,9 +2,14 @@
 title: Polyop
 layout: base.njk
 youtubeid: Vni0ze8cDCk
+bio: something
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/{{youtubeid}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+{{ bio }}
+
+<a href="/about">Read more</a>
 
 <h2>Releases</h2>
 <div class='release-list'>
