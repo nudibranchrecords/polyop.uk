@@ -5,7 +5,15 @@ content:
     type: file
     fields:
       - { name: title, label: Title, type: string }
+      - { name: bio, label: Short Bio, type: rich-text }
       - { name: youtubeid, label: Youtube ID, type: string }
+  - name: about
+    label: About
+    path: src/about.md
+    type: file
+    fields:
+      - { name: title, label: Title, type: string }
+      - { name: bio, label: Long Bio, type: rich-text }
   - name: releases
     label: Releases
     path: src/releases
