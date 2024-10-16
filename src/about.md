@@ -1,11 +1,10 @@
 ---
 title: Polyop - About the band
-bio: |-
-  This is a test to see how things work
-
-  *   list
-      
-  *   ok
-      
-  *   yeah
+layout: base.njk
+title: About the band
+bio: something
 ---
+
+<h1>{{title}}</h1>
+
+{{ bio }}

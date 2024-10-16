@@ -1,5 +1,23 @@
 ---
 title: Polyop
-bio: Some short piece of text. We can do **bold text**, _italics_, etc.
+layout: base.njk
 youtubeid: Vni0ze8cDCk
+bio: something
 ---
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/{{youtubeid}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+{{ bio }}
+
+<a href="/about">Read more</a>
+
+<h2>Releases</h2>
+<div class='release-list'>
+{% for release in collections.releases reversed %}
+  <div class='release-item'>
+    <div class='release-thumb'>
+      <iframe style="border: 0; width: 100%; height: 100%;" src="https://bandcamp.com/EmbeddedPlayer/{{release.data.type}}={{release.data.bandcampid}}/size=large/bgcol=111111/linkcol=0687f5/minimal=true/transparent=true/" seamless></iframe>
+    </div>
+  </div>
+{% endfor %}
+</div>
