@@ -1,21 +1,31 @@
 content:
   - name: home
     label: Home
-    path: src/index.md
+    path: src/index.njk
     type: file
     fields:
       - { name: layout, hidden: true, type: string, default: home.njk }
       - { name: title, label: Title, type: string }
-      - { name: bio, label: Short Bio, type: rich-text, options: { format: html } }
+      - {
+          name: bio,
+          label: Short Bio,
+          type: rich-text,
+          options: { format: html },
+        }
       - { name: youtubeid, label: Youtube ID, type: string }
   - name: about
     label: About
-    path: src/about.md
+    path: src/about.njk
     type: file
     fields:
       - { name: layout, hidden: true, type: string, default: about.njk }
       - { name: title, label: Title, type: string }
-      - { name: bio, label: Long Bio, type: rich-text, options: { format: html } }
+      - {
+          name: bio,
+          label: Long Bio,
+          type: rich-text,
+          options: { format: html },
+        }
   - name: releases
     label: Releases
     path: src/releases
