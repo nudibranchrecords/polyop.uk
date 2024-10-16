@@ -6,3 +6,12 @@ content:
     fields:
       - { name: title, label: Title, type: string }
       - { name: youtubeid, label: Youtube ID, type: string }
+  - name: releases
+    label: Releases
+    path: src/releases
+    type: collection
+    fields:
+      - { name: title, label: Title, type: string }
+      - { name: date, label: Date, type: date }
+      - { name: type, label: Type, type: select, options: { values: [album, track] } }
+      - { name: bandcampid, label: Bandcamp ID, type: string }
