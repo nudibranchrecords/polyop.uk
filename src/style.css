@@ -1,3 +1,14 @@
 body {
   font-family: sans-serif;
 }
+
+.release-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.release-thumb {
+  width: 15rem;
+  height: 15rem;
+}
