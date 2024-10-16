@@ -1,0 +1,8 @@
+content:
+  - name: home
+    label: Home
+    path: src/index.md
+    type: file
+    fields:
+      - { name: title, label: Title, type: string }
+      - { name: youtubeid, label: Youtube ID, type: string }
