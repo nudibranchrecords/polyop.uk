@@ -1,0 +1,16 @@
+body {
+  font-family: sans-serif;
+  background: black;
+  color: white;
+}
+
+.release-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.release-thumb {
+  width: 15rem;
+  height: 15rem;
+}
