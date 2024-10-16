@@ -1,6 +1,7 @@
 ---
 layout: home.njk
 title: Polyop
-bio: Some **small intro**, main page can have _more_!
+bio: <p>This should be a <strong>small intro</strong> about the band. We can
+  have <em>formatting</em>.</p>
 youtubeid: Vni0ze8cDCk
 ---
