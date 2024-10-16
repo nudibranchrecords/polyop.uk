@@ -4,6 +4,7 @@ content:
     path: src/index.md
     type: file
     fields:
+      - { name: layout, hidden: true, type: string, default: base.njk }
       - { name: title, label: Title, type: string }
       - { name: bio, label: Short Bio, type: rich-text }
       - { name: youtubeid, label: Youtube ID, type: string }
@@ -12,6 +13,7 @@ content:
     path: src/about.md
     type: file
     fields:
+      - { name: layout, hidden: true, type: string, default: base.njk }
       - { name: title, label: Title, type: string }
       - { name: bio, label: Long Bio, type: rich-text }
   - name: releases
