@@ -2,7 +2,8 @@
   "type": "module",
   "scripts": {
     "start": "eleventy --serve",
-    "build": "eleventy"
+    "build": "eleventy",
+    "build:withprefix": "eleventy --pathprefix /polyop.uk/"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0"

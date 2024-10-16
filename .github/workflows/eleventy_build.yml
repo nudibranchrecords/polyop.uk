@@ -28,7 +28,7 @@ jobs:
         run: npm ci
 
       - name: Run npm build
-        run: npm run build
+        run: npm run build:withprefix
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
