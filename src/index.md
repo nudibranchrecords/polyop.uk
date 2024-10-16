@@ -1,6 +1,6 @@
 ---
-layout: base.njk
 title: Polyop
-bio: something! testing... **bold text**
+layout: home.njk
 youtubeid: Vni0ze8cDCk
+bio: something
 ---

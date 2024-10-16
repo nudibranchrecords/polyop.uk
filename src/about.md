@@ -1,10 +1,5 @@
 ---
 title: Polyop - About the band
-layout: base.njk
-title: About the band
+layout: about.njk
 bio: something
 ---
-
-<h1>{{title}}</h1>
-
-{{ bio }}
