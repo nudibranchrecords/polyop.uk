@@ -1,0 +1,8 @@
+<section>
+<h2>Shows</h2>
+<ul>
+{% for show in collections.shows | reverse %}
+  <li>{{show.data.date}} - {{show.data.title}} - <a href="{{show.data.url}}">Info/Tickets</a></li>
+{% endfor %}
+</ul>
+</section>
