@@ -1,0 +1,21 @@
+body {
+  font-family: sans-serif;
+  background: black;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.ad {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.ad img {
+  width: 80%;
+  margin-bottom: 1rem;
+}
