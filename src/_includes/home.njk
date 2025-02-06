@@ -7,40 +7,16 @@ layout: base.njk
   <h1>Elektrop: 07.03.2025</h1>
 
   <div class="signup">
-    <h3>Mailing List</h3>
-    <form
-      am-Signup
-      action="//polyop.us14.list-manage.com/subscribe/post?u=8cf6a5e22156a195530b6aabc&amp;id=8077360d4b"
-      method="post"
-      id="mc-embedded-subscribe-form"
-      name="mc-embedded-subscribe-form"
-      class="validate"
-      target="_blank"
-    >
-      <input
-        am-Signup-Input
-        type="email"
-        value=""
-        name="EMAIL"
-        required
-        placeholder="youremail@address.com"
-      />
-      <div style="position: absolute; left: -5000px" aria-hidden="true">
-        <input
-          type="text"
-          name="b_8cf6a5e22156a195530b6aabc_8077360d4b"
-          tabindex="-1"
-          value=""
-        />
-      </div>
-      <input
-        am-Signup-Button
-        type="submit"
-        value="Subscribe"
-        name="subscribe"
-        id="mc-embedded-subscribe"
-      />
-    </form>
+    <section>
+      <h3>Get the newsletter</h3>
+      {% include "./signup.njk" %}
+    </section>
+    <section>
+      Or
+      <a href="https://www.youtube.com/@polyopuk4179?sub_confirmation=1"
+        >Subscribe on Youtube →</a
+      >
+    </section>
   </div>
 </div>
 
@@ -49,7 +25,6 @@ layout: base.njk
   src="https://storage.googleapis.com/dailydoodles/doodles/FA4103E5EEB8784161D979EE1FDF1E96_video_dashinit.mp4"
   autoplay
   muted
-  playbackRate="0.01"
   loop
 ></video>
 <div class="halftone"></div>

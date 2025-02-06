@@ -2,7 +2,7 @@ body {
   font-family: sans-serif;
   background: black;
   color: white;
-  font-family: "Courier New", Courier, monospace;
+  font-family: "Rubik", Arial, Helvetica, sans-serif;
 }
 
 input {
@@ -13,8 +13,37 @@ input {
   font-size: 1.25rem;
 }
 
+h1,
+h2,
+h3 {
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.3rem;
+}
+
+input[type="submit"] {
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.2rem;
+}
+
 h1 {
-  font-size: 3rem;
+  font-style: italic;
+  font-size: 2.2rem;
+  letter-spacing: 0.7rem;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+}
+
+a {
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid white;
+  display: inline-block;
+  padding-bottom: 0.2rem;
+  letter-spacing: 0.1rem;
+  margin: 0 0.5rem;
 }
 
 .ad {
@@ -25,16 +54,29 @@ h1 {
   align-items: center;
   flex-direction: column;
   text-align: center;
-  gap: 2rem;
   position: relative;
 }
 
 .ad img {
-  width: 80%;
+  width: 90%;
+}
+
+.signup {
+  display: flex;
+  padding: 0 1rem;
+  flex-direction: column;
+  gap: 3rem;
+  width: 100%;
+}
+
+.signup form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .signup h3 {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   margin-bottom: 0.5rem;
 }
 
@@ -48,6 +90,11 @@ h1 {
   opacity: 0.8;
   filter: blur(20px);
   z-index: -1;
+}
+
+input::placeholder {
+  color: white;
+  opacity: 0.5;
 }
 
 .halftone {
@@ -69,4 +116,31 @@ h1 {
     radial-gradient(circle at center, black var(--dotSize), transparent 0);
   background-size: var(--bgSize) var(--bgSize);
   background-position: 0 0, var(--bgPosition) var(--bgPosition);
+}
+
+@media (width >= 800px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  .ad img {
+    width: 80%;
+  }
+
+  .signup h3 {
+    font-size: 1.5rem;
+  }
+
+  .signup {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .signup form {
+    flex-direction: row;
+  }
+
+  input[type="email"] {
+    width: 20rem;
+  }
 }
