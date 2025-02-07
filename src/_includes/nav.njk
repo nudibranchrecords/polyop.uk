@@ -2,7 +2,7 @@
   {% for item in collections.navigation %}
   <a
     href="{{ item.data.url }}"
-    class="{{ 'current' if page.url == item.data.url }}"
+    class="{{ 'current' if page.url == item.data.url }} glitch-nav-item"
     ><span class="material-symbols-outlined">{{ item.data.symbol }}</span>
     {{ item.data.label }}
   </a>

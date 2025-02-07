@@ -9,11 +9,17 @@
       href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900"
       rel="stylesheet"
     />
+
+    {% set symbolNames = [] %}
+    {% for item in collections.navigation %}
+    {% set symbolNames = symbolNames.concat(item.data.symbol) %}
+    {% endfor %}
+    {% set extraSymbols = ["bug_report", "cruelty_free", "raven", "owl", "smart_toy", "robot", "robot_2", "precision_manufacturing", "favorite", "bolt", "planet", "family_star"] %}
+    {% set allSymbols = symbolNames.concat(extraSymbols) | sort %}
+
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names={% for item in collections.navigation | sort(attribute='data.symbol') %}{{
-        item.data.symbol
-      }}{% if not loop.last %},{% endif %}{% endfor %}"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names={{allSymbols}}"
     />
     <link rel="icon" href="/img/favicon.png" sizes="image/png" />
 
@@ -27,4 +33,10 @@
     </main>
     {% include "./nav.njk" %}
   </body>
+
+  <script>
+    window.allSymbols = [{% for symbol in allSymbols %}"{{ symbol }}"{% if not loop.last %}, {% endif %}{% endfor %}];
+  </script>
+
+  <script src="/bundle.js"></script>
 </html>
