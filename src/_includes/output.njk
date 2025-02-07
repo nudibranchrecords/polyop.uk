@@ -1,0 +1,34 @@
+---
+layout: base.njk
+---
+
+{% set currentSymbol = "" %}
+{% for item in collections.navigation %}
+  {% if item.data.url == page.url %}
+    {% set currentSymbol = item.data.symbol %}
+  {% endif %}
+{% endfor %}
+
+<div class="page-wrap">
+  <h1><span class="material-symbols-outlined">{{ currentSymbol }}</span>OUTPUT</h1>
+  <section>
+  <h2>Releases</h2>
+  <div class='release-list'>
+  {% for release in collections.releases | reverse %}
+    <div class='release-item'>
+      <div class='release-thumb'>
+        <iframe style="border: 0; width: 100%; height: 100%;" src="https://bandcamp.com/EmbeddedPlayer/{{release.data.type}}={{release.data.bandcampid}}/size=large/bgcol=111111/linkcol=0687f5/minimal=true/transparent=true/" seamless></iframe>
+      </div>
+    </div>
+  {% endfor %}
+  </section>
+
+  <!-- <section>
+  <h2>Shows</h2>
+  <ul>
+  {% for show in collections.shows | reverse %}
+    <li>{{show.data.date}} - {{show.data.title}} - <a href="{{show.data.url}}">Info/Tickets</a></li>
+  {% endfor %}
+  </ul>
+  </section> -->
+</div>

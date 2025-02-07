@@ -12,9 +12,9 @@ content:
     label: Home
     path: src/index.njk
     type: file
-  - name: about
-    label: About
-    path: src/about.njk
+  - name: data
+    label: Data
+    path: src/data.njk
     type: file
     fields:
       - { name: layout, hidden: true, type: string, default: about.njk }
