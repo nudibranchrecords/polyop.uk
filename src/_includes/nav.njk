@@ -1,5 +1,5 @@
 <nav>
-  {% for item in collections.navigation %}
+  {% for item in collections.navigation | sort(attribute='data.order') %}
   <a
     href="{{ item.data.url }}"
     class="{{ 'current' if page.url == item.data.url }} glitch-nav-item"
