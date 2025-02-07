@@ -10,12 +10,15 @@
       rel="stylesheet"
     />
 
-    {% set symbolNames = [] %}
+    {% set symbols = [] %}
     {% for item in collections.navigation %}
-    {% set symbolNames = symbolNames.concat(item.data.symbol) %}
+      {% set symbols = symbols.concat(item.data.symbol) %}
+    {% endfor %}
+     {% for item in collections.links %}
+      {% set symbols = symbols.concat(item.data.symbol) %}
     {% endfor %}
     {% set extraSymbols = ["bug_report", "cruelty_free", "raven", "owl", "smart_toy", "robot", "robot_2", "precision_manufacturing", "favorite", "bolt", "planet", "family_star"] %}
-    {% set allSymbols = symbolNames.concat(extraSymbols) | sort %}
+    {% set allSymbols = symbols.concat(extraSymbols) | sort | deduplicate %}
 
     <link
       rel="stylesheet"

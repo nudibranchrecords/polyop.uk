@@ -185,6 +185,17 @@ input:focus {
   background: black;
 }
 
+.link-list {
+  li {
+    list-style: none;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+  }
+}
+
 .halftone {
   position: fixed;
   top: 0;

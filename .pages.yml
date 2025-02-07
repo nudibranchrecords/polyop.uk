@@ -39,6 +39,15 @@ content:
           options: { values: [album, track] },
         }
       - { name: bandcampid, label: Bandcamp ID, type: number }
+  - name: links
+    label: Links
+    type: collection
+    path: src/links
+    fields:
+      - { name: label, label: Label, type: string }
+      - { name: url, label: URL, type: string }
+      - { name: symbol, label: Symbol, type: string }
+      - { name: order, label: Order, type: number }
   - name: shows
     label: Shows
     path: src/shows
