@@ -1,4 +1,12 @@
 content:
+  - name: navigation
+    label: Navigation
+    type: collection
+    path: src/navigation
+    fields:
+      - { name: label, label: Label, type: string }
+      - { name: url, label: URL, type: string }
+      - { name: order, label: Order, type: number }
   - name: home
     label: Home
     path: src/index.njk

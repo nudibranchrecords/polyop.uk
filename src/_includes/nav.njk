@@ -1,0 +1,9 @@
+<nav>
+  {% for item in collections.navigation %}
+  <a
+    href="{{ item.data.url }}"
+    class="{{ 'current' if page.url == item.data.url }}"
+    >{{ item.data.label }}</a
+  >
+  {% endfor %}
+</nav>
