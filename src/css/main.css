@@ -93,12 +93,12 @@ nav {
   background: rgba(0, 0, 0, 0.5);
   text-transform: uppercase;
   display: flex;
+  justify-content: space-around;
 
   a {
     font-weight: 100;
     text-align: center;
-    padding: 0.8rem 0;
-    flex: 1;
+    padding: 0.8rem 0.5rem;
     margin: 0;
     border: 0;
     font-size: 0.8rem;
