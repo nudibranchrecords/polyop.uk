@@ -10,9 +10,12 @@ layout: base.njk
 {% endfor %}
 
 <div class="page-wrap">
+  <div class="reading-container">
   <h1><span class="material-symbols-outlined">{{ currentSymbol }}</span>OUTPUT</h1>
-  <section>
   <h2>Releases</h2>
+</div>
+  <section>
+  
   <div class='release-list'>
   {% for release in collections.releases | reverse %}
     <div class='release-item'>
