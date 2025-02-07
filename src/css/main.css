@@ -105,6 +105,11 @@ nav {
     opacity: 0.5;
     transition: 0.4s;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+
     &.current,
     &:hover {
       opacity: 1;

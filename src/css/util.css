@@ -21,3 +21,7 @@
 .mb4 {
   margin-bottom: 4rem;
 }
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 100, "GRAD" 0, "opsz" 24;
+}
