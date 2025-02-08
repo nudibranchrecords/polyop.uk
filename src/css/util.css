@@ -28,10 +28,10 @@
 }
 
 .page-wrap {
-  padding: 1rem 1rem 3rem 1rem;
+  padding: 1rem 1rem calc(var(--navHeight) + 1rem) 1rem;
 
   @media (width >= 800px) {
-    padding: 2rem 2rem 5rem 2rem;
+    padding: 2rem 2rem calc(var(--navHeight) + 2rem) 2rem;
   }
 }
 

@@ -1,6 +1,8 @@
 :root {
   --navHeight: 2.8rem;
 
+  --fadedBorder: 1px solid rgba(255, 255, 255, 0.2);
+
   @media (width >= 800px) {
     --navHeight: 3rem;
   }
@@ -121,7 +123,7 @@ a {
 }
 
 nav {
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: var(--fadedBorder);
   box-shadow: 0 0 1rem 1rem rgba(0, 0, 0, 0.8);
   height: var(--navHeight);
   position: fixed;
@@ -199,13 +201,35 @@ nav {
   }
 }
 
+@keyframes shimmer {
+  to {
+    background-position-x: 0%;
+  }
+}
+
 .release-item {
+  border: var(--fadedBorder);
   aspect-ratio: 1 / 1;
 }
 
 .release-thumb {
   width: 100%;
   height: 100%;
+
+  background: linear-gradient(
+    -45deg,
+
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(100, 100, 100, 0.2) 25%,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(100, 100, 100, 0.2) 75%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+
+  background-size: 300%;
+  background-position-x: 100%;
+
+  animation: shimmer 1s infinite linear;
 }
 
 .video-bg {
