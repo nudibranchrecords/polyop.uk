@@ -45,12 +45,6 @@ h2 {
   }
 }
 
-h1 {
-  @media (width >= 800px) {
-    font-size: 3rem;
-  }
-}
-
 input[type="submit"] {
   text-transform: uppercase;
   font-weight: 500;
@@ -70,6 +64,10 @@ h1 {
   display: flex;
   align-items: center;
   gap: 1rem;
+
+  @media (width >= 800px) {
+    font-size: 3rem;
+  }
 }
 
 a {
@@ -135,6 +133,11 @@ nav {
   text-transform: uppercase;
   display: flex;
   justify-content: space-around;
+
+  &.transparent-nav {
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: none;
+  }
 
   a {
     font-weight: 100;

@@ -1,4 +1,4 @@
-<nav>
+<nav class="{{ 'transparent-nav' if page.url == '/' }}">
   {% for item in collections.navigation | sort(attribute='data.order') %}
   <a
     href="{{ item.data.url }}"
