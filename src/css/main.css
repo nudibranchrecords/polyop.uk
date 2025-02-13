@@ -204,12 +204,6 @@ nav {
   }
 }
 
-@keyframes shimmer {
-  to {
-    background-position-x: 0%;
-  }
-}
-
 .release-item {
   border: var(--fadedBorder);
   aspect-ratio: 1 / 1;
@@ -218,21 +212,6 @@ nav {
 .release-thumb {
   width: 100%;
   height: 100%;
-
-  background: linear-gradient(
-    -45deg,
-
-    rgba(0, 0, 0, 0.5) 0%,
-    rgba(100, 100, 100, 0.2) 25%,
-    rgba(0, 0, 0, 0.5) 50%,
-    rgba(100, 100, 100, 0.2) 75%,
-    rgba(0, 0, 0, 0.5) 100%
-  );
-
-  background-size: 300%;
-  background-position-x: 100%;
-
-  animation: shimmer 1s infinite linear;
 }
 
 .video-bg {
