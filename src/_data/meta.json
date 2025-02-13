@@ -1,0 +1,27 @@
+{
+  "title": "Polyop",
+  "description": "Audio-visual techno act from London. Finding acid deep in space.",
+  "shareImage": "/media/elektrop-share.jpg",
+  "navigation": [
+    {
+      "label": "Home",
+      "url": "/",
+      "symbol": "planet"
+    },
+    {
+      "label": "Music",
+      "url": "/music/",
+      "symbol": "album"
+    },
+    {
+      "label": "Bio",
+      "url": "/bio/",
+      "symbol": "folder_shared"
+    },
+    {
+      "label": "Contact",
+      "url": "/contact/",
+      "symbol": "cell_tower"
+    }
+  ]
+}

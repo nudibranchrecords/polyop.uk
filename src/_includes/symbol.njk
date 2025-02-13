@@ -1,0 +1,7 @@
+{% macro getCurrentSymbol(pageUrl, meta) %}
+  {% for item in meta.navigation %}
+    {% if item.url == pageUrl %}
+      {{ item.symbol }}
+    {% endif %}
+  {% endfor %}
+{% endmacro %}

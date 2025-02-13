@@ -1,9 +1,24 @@
+media:
+  input: src/media
+  output: /media
 content:
   - name: meta
     label: Meta
     type: file
-    path: src/_data/meta.yml
+    path: src/_data/meta.json
     fields:
+      - name: title
+        type: string
+        label: Base Page Title
+        description: All pages will have this at the end of the HTML title unless overriden
+      - name: description
+        type: string
+        label: Site description
+        description: Meta tag, comes up in google results and sometimes when sharing links
+      - name: shareImage
+        type: image
+        label: Share Image
+        description: Image shown in preview when sharing (e.g. whatsapp)
       - name: navigation
         label: Navigation
         type: object
@@ -11,20 +26,32 @@ content:
         fields:
           - { name: label, label: Label, type: string }
           - { name: url, label: URL, type: string }
-          - { name: symbol, label: Symbol, type: string }
-  - name: navigation
-    label: Navigation
-    type: collection
-    path: src/navigation
-    fields:
-      - { name: label, label: Label, type: string }
-      - { name: url, label: URL, type: string }
-      - { name: symbol, label: Symbol, type: string }
-      - { name: order, label: Order, type: number }
+          - {
+              name: symbol,
+              label: Symbol,
+              type: string,
+              description: "Any symbol name from here: https://fonts.google.com/icons",
+            }
   - name: home
     label: Home
     path: src/index.njk
     type: file
+    fields:
+      - { name: title, label: Title, type: string }
+      - { name: layout, hidden: true, type: string, default: home.njk }
+      - {
+          name: titleOverride,
+          label: Title Override,
+          type: string,
+          description: "Full HTML title of the home page, ignores the meta config",
+        }
+  - name: music
+    label: Music
+    path: src/music.njk
+    type: file
+    fields:
+      - { name: layout, hidden: true, type: string, default: music.njk }
+      - { name: title, label: Title, type: string }
   - name: bio
     label: Bio
     path: src/bio.njk
@@ -33,11 +60,37 @@ content:
       - { name: layout, hidden: true, type: string, default: bio.njk }
       - { name: title, label: Title, type: string }
       - {
+          name: youtubeVideoId,
+          label: Youtube Video ID,
+          description: Embeds a video at the top of page. Just enter the ID from the Youtube URL,
+          type: string,
+        }
+      - {
           name: bio,
           label: Long Bio,
           type: rich-text,
           options: { format: html },
         }
+  - name: contact
+    label: Contact
+    type: file
+    path: src/contact.njk
+    fields:
+      - { name: layout, hidden: true, type: string, default: contact.njk }
+      - { name: title, label: Title, type: string }
+      - name: links
+        label: Links
+        type: object
+        list: true
+        fields:
+          - { name: label, label: Label, type: string }
+          - { name: url, label: URL, type: string }
+          - {
+              name: symbol,
+              label: Symbol,
+              type: string,
+              description: "Any symbol name from here: https://fonts.google.com/icons",
+            }
   - name: releases
     label: Releases
     path: src/releases
@@ -52,20 +105,3 @@ content:
           options: { values: [album, track] },
         }
       - { name: bandcampid, label: Bandcamp ID, type: number }
-  - name: links
-    label: Links
-    type: collection
-    path: src/links
-    fields:
-      - { name: label, label: Label, type: string }
-      - { name: url, label: URL, type: string }
-      - { name: symbol, label: Symbol, type: string }
-      - { name: order, label: Order, type: number }
-  - name: shows
-    label: Shows
-    path: src/shows
-    type: collection
-    fields:
-      - { name: title, label: Title, type: string }
-      - { name: date, label: Date, type: date }
-      - { name: url, label: URL, type: string }

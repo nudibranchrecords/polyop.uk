@@ -7,16 +7,20 @@ layout: base.njk
 <div class="page-wrap">
   <div class="reading-container">
     <h1>
+
       <span class="material-symbols-outlined">{{ getCurrentSymbol(page.url, meta) }}</span>
       {{ title }}
     </h1>
 
-    {% if youtubeVideoId %}
-      <div class="video mb2">
-        <iframe src="https://www.youtube.com/embed/{{youtubeVideoId}}" allowfullscreen></iframe>
-      </div>
-    {% endif %}
-
-    {{ bio | safe }}
+    <ul class="link-list">
+      {% for link in links %}
+        <li>
+          <span class="material-symbols-outlined">{{ link.symbol }}</span>
+          <a href="{{ link.url }}">
+            {{ link.label }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
   </div>
 </div>
