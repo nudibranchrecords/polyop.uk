@@ -1,11 +1,10 @@
 <nav class="{{ 'transparent-nav' if page.url == '/' }}">
-  {% for item in collections.navigation | sort(attribute='data.order') %}
+  {% for item in meta.navigation %}
   <a
-    href="{{ item.data.url }}"
-    class="{{ 'current' if page.url == item.data.url }} glitch-nav-item"
-    ><span class="material-symbols-outlined icon">{{ item.data.symbol }}</span>
-    <span class="nav-label">{{ item.data.label }}</span>
+    href="{{ item.url }}"
+    class="{{ 'current' if page.url == item.url }} glitch-nav-item"
+    ><span class="material-symbols-outlined icon">{{ item.symbol }}</span>
+    <span class="nav-label">{{ item.label }}!!</span>
   </a>
-
   {% endfor %}
 </nav>
