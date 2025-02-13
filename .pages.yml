@@ -2,7 +2,7 @@ content:
   - name: meta
     label: Meta
     type: file
-    path: src/_data/meta.yml
+    path: src/_data/meta.json
     fields:
       - name: navigation
         label: Navigation
