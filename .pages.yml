@@ -1,4 +1,19 @@
 content:
+  - name: meta
+    label: Meta
+    type: file
+    path: src/_data/meta.json
+    format: json-frontmatter
+    fields:
+      - name: navigation
+        label: Navigation
+        type: object
+        list: true
+        fields:
+          - { name: label, label: Label, type: string }
+          - { name: url, label: URL, type: string }
+          - { name: symbol, label: Symbol, type: string }
+          - { name: order, label: Order, type: number }
   - name: navigation
     label: Navigation
     type: collection
