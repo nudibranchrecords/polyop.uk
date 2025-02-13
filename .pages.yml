@@ -36,6 +36,22 @@ content:
           type: rich-text,
           options: { format: html },
         }
+  - name: contact
+    label: Contact
+    type: file
+    path: src/contact.njk
+    fields:
+      - { name: layout, hidden: true, type: string, default: contact.njk }
+      - { name: title, label: Title, type: string }
+      - name: navigation
+        label: Navigation
+        type: object
+        list: true
+        fields:
+          - { name: label, label: Label, type: string }
+          - { name: url, label: URL, type: string }
+          - { name: symbol, label: Symbol, type: string }
+          - { name: order, label: Order, type: number }
   - name: releases
     label: Releases
     path: src/releases
@@ -50,20 +66,3 @@ content:
           options: { values: [album, track] },
         }
       - { name: bandcampid, label: Bandcamp ID, type: number }
-  - name: links
-    label: Links
-    type: collection
-    path: src/links
-    fields:
-      - { name: label, label: Label, type: string }
-      - { name: url, label: URL, type: string }
-      - { name: symbol, label: Symbol, type: string }
-      - { name: order, label: Order, type: number }
-  - name: shows
-    label: Shows
-    path: src/shows
-    type: collection
-    fields:
-      - { name: title, label: Title, type: string }
-      - { name: date, label: Date, type: date }
-      - { name: url, label: URL, type: string }
