@@ -26,7 +26,7 @@ content:
     type: file
     fields:
       - { name: layout, hidden: true, type: string, default: home.njk }
-      - { name: title, label: Title, type: string }
+      - { name: titleOverride, label: Title Override, type: string, description: "Full HTML title of the home page, ignores the meta config" }
   - name: music
     label: Music
     path: src/music.njk
