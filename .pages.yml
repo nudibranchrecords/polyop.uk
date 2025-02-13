@@ -51,7 +51,6 @@ content:
           - { name: label, label: Label, type: string }
           - { name: url, label: URL, type: string }
           - { name: symbol, label: Symbol, type: string }
-          - { name: order, label: Order, type: number }
   - name: releases
     label: Releases
     path: src/releases
