@@ -1,7 +1,13 @@
 navigation:
-  - label: "Home"
-    url: "/"
-    symbol: "planet"
-  - label: "Bio"
-    url: "/bio"
-    symbol: "folder_shared"
+  - label: Home
+    url: /
+    symbol: planet
+  - label: Music
+    url: /music
+    symbol: album
+  - label: Bio
+    url: /bio
+    symbol: folder_shared
+  - label: Contact
+    url: /contact
+    symbol: cell_tower
