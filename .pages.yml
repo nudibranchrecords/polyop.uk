@@ -59,6 +59,7 @@ content:
     fields:
       - { name: layout, hidden: true, type: string, default: bio.njk }
       - { name: title, label: Title, type: string }
+      - { name: youtubeVideoId, label: Youtube Video ID, description: Embeds a video at the top of page. Just enter the ID from the Youtube URL, type: string }
       - {
           name: bio,
           label: Long Bio,
