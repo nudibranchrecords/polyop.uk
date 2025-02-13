@@ -8,6 +8,10 @@ content:
         type: string
         label: Base Page Title
         description: All pages will have this at the end of the HTML title unless overriden
+      - name: site-description
+        type: string
+        label: Site description
+        description: Meta tag, comes up in google results and sometimes when sharing links
       - name: navigation
         label: Navigation
         type: object
