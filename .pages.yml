@@ -4,6 +4,10 @@ content:
     type: file
     path: src/_data/meta.json
     fields:
+      - name: base-title
+        type: string
+        label: Base Page Title
+        description: All pages will have this at the end of the HTML title unless overriden
       - name: navigation
         label: Navigation
         type: object
