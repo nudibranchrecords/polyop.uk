@@ -12,19 +12,17 @@ content:
           - { name: label, label: Label, type: string }
           - { name: url, label: URL, type: string }
           - { name: symbol, label: Symbol, type: string }
-  - name: navigation
-    label: Navigation
-    type: collection
-    path: src/navigation
-    fields:
-      - { name: label, label: Label, type: string }
-      - { name: url, label: URL, type: string }
-      - { name: symbol, label: Symbol, type: string }
-      - { name: order, label: Order, type: number }
   - name: home
     label: Home
     path: src/index.njk
     type: file
+  - name: music
+    label: Music
+    path: src/music.njk
+    type: file
+    fields:
+      - { name: layout, hidden: true, type: string, default: music.njk }
+      - { name: title, label: Title, type: string }
   - name: bio
     label: Bio
     path: src/bio.njk
