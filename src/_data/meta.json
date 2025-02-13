@@ -7,17 +7,17 @@
     },
     {
       "label": "Music",
-      "url": "/music",
+      "url": "/music/",
       "symbol": "album"
     },
     {
       "label": "Bio",
-      "url": "/bio",
+      "url": "/bio/",
       "symbol": "folder_shared"
     },
     {
       "label": "Contact",
-      "url": "/contact",
+      "url": "/contact/",
       "symbol": "cell_tower"
     }
   ]

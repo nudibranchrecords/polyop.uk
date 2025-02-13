@@ -2,14 +2,13 @@
 layout: base.njk
 ---
 
-{% set currentSymbol = "" %} {% for item in collections.navigation %} {% if
-item.data.url == page.url %} {% set currentSymbol = item.data.symbol %} {% endif
-%} {% endfor %}
+{% from "./symbol.njk" import getCurrentSymbol %}
 
 <div class="page-wrap">
   <div class="reading-container">
     <h1>
-      <span class="material-symbols-outlined">{{ currentSymbol }}</span>
+      <span class="material-symbols-outlined">{{ getCurrentSymbol(page.url, meta) }}</span>
+
       {{ title }}
     </h1>
 

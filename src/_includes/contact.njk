@@ -1,0 +1,26 @@
+---
+layout: base.njk
+---
+
+{% from "./symbol.njk" import getCurrentSymbol %}
+
+<div class="page-wrap">
+  <div class="reading-container">
+    <h1>
+
+      <span class="material-symbols-outlined">{{ getCurrentSymbol(page.url, meta) }}</span>
+      {{ title }}
+    </h1>
+
+    <ul class="link-list">
+      {% for link in collections.links | sort(attribute = 'data.order') %}
+        <li>
+          <span class="material-symbols-outlined">{{ link.data.symbol }}</span>
+          <a href="{{ link.data.url }}">
+            {{ link.data.label }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
