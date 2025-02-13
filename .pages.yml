@@ -1,5 +1,5 @@
 media:
-  input: media
+  input: src/media
   output: /media
 content:
   - name: meta
