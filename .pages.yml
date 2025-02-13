@@ -15,6 +15,10 @@ content:
         type: string
         label: Site description
         description: Meta tag, comes up in google results and sometimes when sharing links
+      - name: shareImage
+        type: image
+        label: Share Image
+        description: Image shown in preview when sharing (e.g. whatsapp)
       - name: navigation
         label: Navigation
         type: object
@@ -22,7 +26,12 @@ content:
         fields:
           - { name: label, label: Label, type: string }
           - { name: url, label: URL, type: string }
-          - { name: symbol, label: Symbol, type: string }
+          - {
+              name: symbol,
+              label: Symbol,
+              type: string,
+              description: "Any symbol name from here: https://fonts.google.com/icons",
+            }
   - name: home
     label: Home
     path: src/index.njk
