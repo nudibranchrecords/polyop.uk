@@ -12,12 +12,12 @@ content:
     label: Home
     path: src/index.njk
     type: file
-  - name: data
-    label: Data
-    path: src/data.njk
+  - name: bio
+    label: Bio
+    path: src/bio.njk
     type: file
     fields:
-      - { name: layout, hidden: true, type: string, default: about.njk }
+      - { name: layout, hidden: true, type: string, default: bio.njk }
       - { name: title, label: Title, type: string }
       - {
           name: bio,
