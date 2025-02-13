@@ -2,8 +2,7 @@ content:
   - name: meta
     label: Meta
     type: file
-    path: src/_data/meta.json
-    format: json-frontmatter
+    path: src/_data/meta.yml
     fields:
       - name: navigation
         label: Navigation
