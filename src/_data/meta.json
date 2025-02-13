@@ -1,2 +1,16 @@
 {
+{
+  "navigation": [
+    {
+      "label": "Home",
+      "url": "/",
+      "symbol": "planet"
+    },
+    {
+      "label": "Bio",
+      "url": "/bio",
+      "symbol": "folder_shared"
+    }
+  ]
+}
 }
