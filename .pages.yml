@@ -85,7 +85,12 @@ content:
         fields:
           - { name: label, label: Label, type: string }
           - { name: url, label: URL, type: string }
-          - { name: symbol, label: Symbol, type: string }
+          - {
+              name: symbol,
+              label: Symbol,
+              type: string,
+              description: "Any symbol name from here: https://fonts.google.com/icons",
+            }
   - name: releases
     label: Releases
     path: src/releases
