@@ -16,6 +16,8 @@ content:
     label: Home
     path: src/index.njk
     type: file
+    fields:
+      - { name: layout, hidden: true, type: string, default: home.njk }
   - name: music
     label: Music
     path: src/music.njk
