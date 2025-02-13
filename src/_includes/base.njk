@@ -14,8 +14,8 @@
     {% for item in meta.navigation %}
       {% set symbols = symbols.concat(item.symbol) %}
     {% endfor %}
-    {% for item in collections.links %}
-      {% set symbols = symbols.concat(item.data.symbol) %}
+    {% for item in globalData.contact.links %}
+      {% set symbols = symbols.concat(item.symbol) %}
     {% endfor %}
     {% set extraSymbols = [
       "bug_report",

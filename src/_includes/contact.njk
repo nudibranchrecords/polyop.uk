@@ -13,11 +13,11 @@ layout: base.njk
     </h1>
 
     <ul class="link-list">
-      {% for link in collections.links | sort(attribute = 'data.order') %}
+      {% for link in links %}
         <li>
-          <span class="material-symbols-outlined">{{ link.data.symbol }}</span>
-          <a href="{{ link.data.url }}">
-            {{ link.data.label }}
+          <span class="material-symbols-outlined">{{ link.symbol }}</span>
+          <a href="{{ link.url }}">
+            {{ link.label }}
           </a>
         </li>
       {% endfor %}
