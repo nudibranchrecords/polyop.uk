@@ -6,6 +6,8 @@ export default async function (eleventyConfig) {
   eleventyConfig.addWatchTarget("./src/js/");
   eleventyConfig.addPassthroughCopy("./src/img");
   eleventyConfig.addPassthroughCopy("./src/CNAME");
+  eleventyConfig.addPassthroughCopy("./src/run_grids");
+  eleventyConfig.addPassthroughCopy("./src/ceremony");
   eleventyConfig.addFilter("deduplicate", function (array) {
     return Array.from(new Set(array));
   });
