@@ -1,3 +1,6 @@
+media:
+  input: media
+  output: /media
 content:
   - name: meta
     label: Meta
@@ -27,7 +30,12 @@ content:
     fields:
       - { name: title, label: Title, type: string }
       - { name: layout, hidden: true, type: string, default: home.njk }
-      - { name: titleOverride, label: Title Override, type: string, description: "Full HTML title of the home page, ignores the meta config" }
+      - {
+          name: titleOverride,
+          label: Title Override,
+          type: string,
+          description: "Full HTML title of the home page, ignores the meta config",
+        }
   - name: music
     label: Music
     path: src/music.njk
