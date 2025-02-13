@@ -427,3 +427,13 @@ input:focus {
   max-width: 50rem;
 }
 
+.video {
+  aspect-ratio: 16 / 9;
+
+  iframe {
+    border: 0;
+    height: 100%;
+    width: 100%;
+  }
+}
+
