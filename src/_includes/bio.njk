@@ -11,6 +11,12 @@ layout: base.njk
       {{ title }}
     </h1>
 
+    {% if youtubeVideoId %}
+      <div class="video mb2">
+        <iframe src="https://www.youtube.com/embed/{{youtubeVideoId}}" allowfullscreen></iframe>
+      </div>
+    {% endif %}
+
     {{ bio | safe }}
   </div>
 </div>
