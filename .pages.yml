@@ -117,4 +117,4 @@ content:
           options: { values: [album, track] },
         }
       - { name: bandcampid, label: Bandcamp ID, type: number }
-      - { name: formats, label: Formats, type: text, list: true }
+      - { name: formats, label: Formats, type: string, list: true }
