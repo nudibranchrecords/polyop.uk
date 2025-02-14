@@ -14,14 +14,7 @@ layout: base.njk
   <div class='release-list'>
     {% for release in collections.releases | reverse %}
       <div class='release-item'>
-        <div class="release-thumb">
-          <div class="square-thumb shimmer">
-            <img src="{{release.data.image}}" alt="{{release.data.title}}">
-          </div>
-          <iframe class="shimmer" src="https://bandcamp.com/EmbeddedPlayer/{{release.data.type}}={{release.data.bandcampid}}/size=small/bgcol=111111/linkcol=ffffff/artwork=none/transparent=true/" seamless></iframe>
-
-        </div>
-        <div class="release-info">
+        <div class="release-header">
           <h3>{{release.data.title}}</h3>
           <div class="release-details">
             {{release.data.date | date}}
@@ -33,7 +26,14 @@ layout: base.njk
 
             </ul>
           </div>
-
+        </div>
+        <div class="release-thumb">
+          <div class="square-thumb shimmer">
+            <img src="{{release.data.image}}" alt="{{release.data.title}}">
+          </div>
+          <iframe class="shimmer" src="https://bandcamp.com/EmbeddedPlayer/{{release.data.type}}={{release.data.bandcampid}}/size=small/bgcol=111111/linkcol=ffffff/artwork=none/transparent=true/" seamless></iframe>
+        </div>
+        <div class="release-info">
           {{release.data.description | safe}}
 
           <ul class="release-links">
