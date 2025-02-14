@@ -13,7 +13,7 @@ formats:
   - digital
   - WebGL visualiser
 visualExtras:
-  - linkText: "WebGL Visuals: run_grids"
+  - linkText: "WebGL Demo: run_grids"
     url: https://polyop.uk/run_grids/
     symbol: view_in_ar
 ---
