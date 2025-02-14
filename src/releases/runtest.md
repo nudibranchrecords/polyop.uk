@@ -16,5 +16,4 @@ visualExtras:
   - linkText: "WebGL Visuals: run_grids"
     url: https://polyop.uk/run_grids/
     symbol: view_in_ar
-  - {}
 ---
