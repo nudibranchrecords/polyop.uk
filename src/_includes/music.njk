@@ -32,10 +32,22 @@ layout: base.njk
               {% endfor %}
 
             </ul>
-
           </div>
 
           {{release.data.description | safe}}
+
+          <ul class="release-links">
+            {% for extra in release.data.visualExtras %}
+              <li>
+                <span class="material-symbols-outlined">{{extra.symbol}}</span>
+                <a href="{{extra.url}}" class="release-link">{{extra.linkText}}</a>
+              </li>
+            {% endfor %}
+            <li>
+              <span class="material-symbols-outlined">album</span>
+              <a href="{{release.data.bandcampUrl}}" class="release-link">Buy on Bandcamp</a>
+            </li>
+          </ul>
         </div>
       </div>
     {% endfor %}

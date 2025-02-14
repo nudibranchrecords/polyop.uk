@@ -17,7 +17,13 @@
     {% for item in globalData.contact.links %}
       {% set symbols = symbols.concat(item.symbol) %}
     {% endfor %}
+    {% for release in collections.releases %}
+      {% for extra in release.data.visualExtras %}
+        {% set symbols = symbols.concat(extra.symbol) %}
+      {% endfor %}
+    {% endfor %}
     {% set extraSymbols = [
+      "album",
       "bug_report",
       "cruelty_free",
       "raven",
