@@ -259,7 +259,6 @@ nav {
 }
 
 .release-thumb {
-  aspect-ratio: 1;
   flex-basis: 50%;
   line-height: 0;
   margin-bottom: 1rem;

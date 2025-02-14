@@ -6,6 +6,7 @@
     "build:withprefix": "eleventy --pathprefix /polyop.uk/"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^3.0.0"
+    "@11ty/eleventy": "^3.0.0",
+    "@11tyrocks/eleventy-plugin-lightningcss": "^1.4.0"
   }
 }

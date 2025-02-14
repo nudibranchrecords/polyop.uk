@@ -1,5 +1,6 @@
 import { EleventyHtmlBasePlugin } from "@11ty/eleventy";
 import { DateTime } from "luxon";
+import lightningCSS from "@11tyrocks/eleventy-plugin-lightningcss";
 
 export default async function (eleventyConfig) {
   eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
@@ -17,6 +18,8 @@ export default async function (eleventyConfig) {
   eleventyConfig.addFilter("date", (dateString, format = "LLLL y") =>
     DateTime.fromJSDate(dateString).toFormat(format)
   );
+
+  eleventyConfig.addPlugin(lightningCSS);
 
   return {
     dir: {
