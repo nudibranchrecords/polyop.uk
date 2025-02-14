@@ -194,24 +194,31 @@ nav {
 }
 
 .release-list {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 1rem;
-
-  @media (width >= 800px) {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 2rem;
-  }
+  max-width: 60rem;
+  margin: 0 auto;
 }
 
 .release-item {
-  border: var(--fadedBorder);
-  aspect-ratio: 1 / 1;
+  display: flex;
+  gap: 2rem;
+
+  iframe {
+    border: 0;
+    height: 42px;
+    width: 100%;
+  }
 }
 
 .release-thumb {
-  width: 100%;
-  height: 100%;
+  aspect-ratio: 1;
+  width: 50%;
+  flex-basis: 50%;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 .video-bg {
