@@ -15,6 +15,7 @@ description: <p>Recently, Polyop’s visual artist Alex Kempton was clearing out
 date: 2021-03-05
 type: album
 bandcampid: 3703538151
+bandcampurl: https://polyop.bandcamp.com/album/do-i-really-give-a-fuck-im-just-a-square-wave
 formats:
   - digital
 ---
