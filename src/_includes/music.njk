@@ -27,9 +27,9 @@ layout: base.njk
             {{release.data.date | date}}
 
             <ul class="release-tags">
-
-              <li>digital</li>
-              <li>tape</li>
+              {% for tag in release.data.formats %}
+                <li>{{tag}}</li>
+              {% endfor %}
 
             </ul>
 

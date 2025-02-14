@@ -201,6 +201,7 @@ nav {
 .release-item {
   display: flex;
   gap: 2rem;
+  margin-bottom: 2rem;
 
   iframe {
     border: 0;
