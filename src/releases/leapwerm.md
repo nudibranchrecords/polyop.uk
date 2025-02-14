@@ -11,7 +11,12 @@ description: <p>POLYOP have achieved the impossible, enabling you to fully
 date: 2020-02-14
 type: track
 bandcampid: 2951365195
+bandcampurl: https://polyop.bandcamp.com/track/leapwerm
 formats:
   - digital
   - AR Filter
+visualExtras:
+  - linkText: "Video Short: Leapwerm AR"
+    url: https://www.youtube.com/shorts/jAQPnlnltTs
+    symbol: smart_display
 ---
