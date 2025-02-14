@@ -97,6 +97,18 @@ content:
     type: collection
     fields:
       - { name: title, label: Title, type: string }
+      - {
+          name: image,
+          label: Image,
+          type: image,
+          description: "Not a high res image! Please optimise before uploading. 1000x1000px, ~90% JPEG quality. ~200kb.",
+        }
+      - {
+          name: description,
+          label: Description,
+          type: rich-text,
+          options: { format: html },
+        }
       - { name: date, label: Date, type: date }
       - {
           name: type,
@@ -105,3 +117,18 @@ content:
           options: { values: [album, track] },
         }
       - { name: bandcampid, label: Bandcamp ID, type: number }
+      - { name: bandcampurl, label: Bandcamp URL, type: string }
+      - { name: formats, label: Formats, type: string, list: true }
+      - name: visualExtras
+        label: Visual Extras
+        type: object
+        list: true
+        fields:
+          - { name: linkText, label: Link Text, type: string }
+          - { name: url, label: URL, type: string }
+          - {
+              name: symbol,
+              label: Symbol,
+              type: string,
+              description: "Any symbol name from here: https://fonts.google.com/icons",
+            }
