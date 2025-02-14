@@ -12,5 +12,7 @@ bandcampurl: https://polyop.bandcamp.com/album/stigmergy
 formats:
   - digital
 visualExtras:
-  - {}
+  - linkText: "Video Short: Leapwerm AR"
+    url: https://www.youtube.com/shorts/jAQPnlnltTs
+    symbol: smart_display
 ---
