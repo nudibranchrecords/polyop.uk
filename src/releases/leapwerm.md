@@ -10,5 +10,5 @@ type: track
 bandcampid: 2951365195
 formats:
   - digital
-  - AR
+  - AR Filter
 ---
