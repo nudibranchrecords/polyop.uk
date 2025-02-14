@@ -1,4 +1,5 @@
 import { EleventyHtmlBasePlugin } from "@11ty/eleventy";
+import { DateTime } from "luxon";
 
 export default async function (eleventyConfig) {
   eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
@@ -12,6 +13,10 @@ export default async function (eleventyConfig) {
   eleventyConfig.addFilter("deduplicate", function (array) {
     return Array.from(new Set(array));
   });
+
+  eleventyConfig.addFilter("date", (dateString, format = "LLLL y") =>
+    DateTime.fromJSDate(dateString).toFormat(format)
+  );
 
   return {
     dir: {
