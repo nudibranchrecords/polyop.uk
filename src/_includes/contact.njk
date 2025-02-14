@@ -12,7 +12,7 @@ layout: base.njk
       {{ title }}
     </h1>
 
-    <ul class="link-list">
+    <ul class="link-list mb4">
       {% for link in links %}
         <li>
           <span class="material-symbols-outlined">{{ link.symbol }}</span>
@@ -22,5 +22,9 @@ layout: base.njk
         </li>
       {% endfor %}
     </ul>
+
+    <h2>Sign up for updates</h2>
+    {% include "./signup.njk" %}
+
   </div>
 </div>
