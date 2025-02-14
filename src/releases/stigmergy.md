@@ -8,6 +8,9 @@ description: <p>Inspired by the pheromone traces ants leave behind to
 date: 2018-11-23
 type: album
 bandcampid: 217484084
+bandcampurl: https://polyop.bandcamp.com/album/stigmergy
 formats:
   - digital
+visualExtras:
+  - {}
 ---
