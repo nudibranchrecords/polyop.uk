@@ -17,5 +17,4 @@ type: album
 bandcampid: 3703538151
 formats:
   - digital
-  - casette
 ---
