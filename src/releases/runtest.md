@@ -8,6 +8,7 @@ description: <p>An audio/visual combo release. The sonic component a 5 part EP,
 date: 2018-01-18
 type: album
 bandcampid: 1350078279
+bandcampurl: https://polyop.bandcamp.com/album/run-test-polyx0x-001
 formats:
   - digital
   - WebGL visualiser
