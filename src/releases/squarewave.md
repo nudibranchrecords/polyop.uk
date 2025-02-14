@@ -15,4 +15,7 @@ description: <p>Recently, Polyop’s visual artist Alex Kempton was clearing out
 date: 2021-03-05
 type: album
 bandcampid: 3703538151
+formats:
+  - digital
+  - casette
 ---
