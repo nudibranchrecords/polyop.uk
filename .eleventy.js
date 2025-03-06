@@ -1,8 +1,10 @@
 import { EleventyHtmlBasePlugin } from "@11ty/eleventy";
 import { DateTime } from "luxon";
 import lightningCSS from "@11tyrocks/eleventy-plugin-lightningcss";
+import eleventyAutoCacheBuster from "eleventy-auto-cache-buster";
 
 export default async function (eleventyConfig) {
+  eleventyConfig.addPlugin(eleventyAutoCacheBuster);
   eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
   eleventyConfig.addWatchTarget("./src/css/");
   eleventyConfig.addWatchTarget("./src/js/");
