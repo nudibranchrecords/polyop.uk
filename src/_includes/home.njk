@@ -2,29 +2,33 @@
 layout: base.njk
 ---
 
-<div class="ad">
-  <img src="/img/title.svg" alt="POLYOP" class="mb1" />
-  <h1 class="mb3">Elektrop: 07.03.2025</h1>
+<div class="page-wrap edge-to-edge">
+  <div class="hero-container">
+    {# <img src="/img/title.svg" alt="POLYOP" class="mb1"/>
+  <h1 class="mb3">Elektrop: 07.03.2025</h1> #}
 
-  <div class="signup">
-    <section class="mb1-5">
-      <h3>Get Notified</h3>
-      {% include "./signup.njk" %}
-    </section>
-    <section>
+    <div class="video full mb2 shimmer">
+      <iframe src="https://www.youtube.com/embed/{{youtubeVideoId}}" allowfullscreen></iframe>
+    </div>
+
+    <div class="signup">
+      <section class="mb1-5">
+        <h3>Sign up for news</h3>
+        {% include "./signup.njk" %}
+      </section>
+      <section>
       Or
       <a href="https://www.youtube.com/@polyopuk4179?sub_confirmation=1"
         >Subscribe on Youtube →</a
       >
-    </section>
+      </section>
+    </div>
   </div>
 </div>
-
-<video
+{# <video
   class="video-bg"
   src="https://storage.googleapis.com/dailydoodles/doodles/FA4103E5EEB8784161D979EE1FDF1E96_video_dashinit.mp4"
-  autoplay
   muted
   loop
 ></video>
-<div class="halftone"></div>
+<div class="halftone"></div> #}

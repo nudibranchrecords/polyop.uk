@@ -45,6 +45,13 @@ content:
           type: string,
           description: "Full HTML title of the home page, ignores the meta config",
         }
+      - {
+          name: youtubeVideoId,
+          label: Youtube Video ID,
+          description: Embeds a video at the top of page. Just enter the ID from the Youtube URL,
+          type: string,
+        }
+
   - name: music
     label: Music
     path: src/music.njk
