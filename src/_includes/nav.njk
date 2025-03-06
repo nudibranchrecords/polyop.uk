@@ -1,10 +1,11 @@
-<nav class="{{ 'transparent-nav' if page.url == '/' }}">
+<nav>
   {% for item in meta.navigation %}
-  <a
+    <a
     href="{{ item.url }}"
     class="{{ 'current' if page.url == item.url }} glitch-nav-item"
-    ><span class="material-symbols-outlined icon">{{ item.symbol }}</span>
-    <span class="nav-label">{{ item.label }}</span>
-  </a>
+    >
+      <span class="material-symbols-outlined icon">{{ item.symbol }}</span>
+      <span class="nav-label">{{ item.label }}</span>
+    </a>
   {% endfor %}
 </nav>

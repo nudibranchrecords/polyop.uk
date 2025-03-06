@@ -33,12 +33,22 @@
   @media (width >= 800px) {
     padding: 2rem 2rem calc(var(--navHeight) + 2rem) 2rem;
   }
+
+  &.edge-to-edge {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+  }
 }
 
 .reading-container {
   margin: 0 auto;
-
   max-width: 50rem;
+}
+
+.hero-container {
+  margin: 0 auto;
+  max-width: 70rem;
 }
 
 .video {
@@ -48,6 +58,10 @@
   iframe {
     border: 0;
     height: 100%;
+    width: 100%;
+  }
+
+  &.full {
     width: 100%;
   }
 }
