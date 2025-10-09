@@ -101,7 +101,7 @@ content:
             }
   - name: releases_collection
     label: Releases
-    path: src/releases
+    path: src/releases_collection
     type: collection
     fields:
       - { name: title, label: Title, type: string }
