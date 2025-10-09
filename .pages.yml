@@ -99,7 +99,7 @@ content:
               type: string,
               description: "Any symbol name from here: https://fonts.google.com/icons",
             }
-  - name: releases
+  - name: releases_collection
     label: Releases
     path: src/releases
     type: collection

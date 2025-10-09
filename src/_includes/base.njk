@@ -17,7 +17,7 @@
     {% for item in globalData.contact.links %}
       {% set symbols = symbols.concat(item.symbol) %}
     {% endfor %}
-    {% for release in collections.releases %}
+    {% for release in collections.releases_collection %}
       {% for extra in release.data.visualExtras %}
         {% set symbols = symbols.concat(extra.symbol) %}
       {% endfor %}
