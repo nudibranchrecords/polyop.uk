@@ -13,43 +13,45 @@ layout: base.njk
   </div>
   <div class='release-list'>
     {% for release in collections.releases_collection | reverse %}
-      <div class='release-item'>
-        <div class="release-header">
-          <h3>{{release.data.title}}</h3>
-          <div class="release-details">
-            {{release.data.date | date}}
+      {% if release.data.isDraft !== true %}
+        <div class='release-item'>
+          <div class="release-header">
+            <h3>{{release.data.title}}</h3>
+            <div class="release-details">
+              {{release.data.date | date}}
 
-            <ul class="release-tags">
-              {% for tag in release.data.formats %}
-                <li>{{tag}}</li>
+              <ul class="release-tags">
+                {% for tag in release.data.formats %}
+                  <li>{{tag}}</li>
+                {% endfor %}
+
+              </ul>
+            </div>
+          </div>
+          <div class="release-thumb">
+            <div class="square-thumb shimmer">
+              <img src="{{release.data.image}}" alt="{{release.data.title}}">
+            </div>
+            <iframe class="shimmer" src="https://bandcamp.com/EmbeddedPlayer/{{release.data.type}}={{release.data.bandcampid}}/size=small/bgcol=111111/linkcol=ffffff/artwork=none/transparent=true/" seamless></iframe>
+          </div>
+          <div class="release-info">
+            {{release.data.description | safe}}
+
+            <ul class="release-links">
+              {% for extra in release.data.visualExtras %}
+                <li>
+                  <span class="material-symbols-outlined">{{extra.symbol}}</span>
+                  <a href="{{extra.url}}" class="release-link">{{extra.linkText}}</a>
+                </li>
               {% endfor %}
-
+              <li>
+                <span class="material-symbols-outlined">album</span>
+                <a href="{{release.data.bandcampurl}}" class="release-link">Buy on Bandcamp</a>
+              </li>
             </ul>
           </div>
         </div>
-        <div class="release-thumb">
-          <div class="square-thumb shimmer">
-            <img src="{{release.data.image}}" alt="{{release.data.title}}">
-          </div>
-          <iframe class="shimmer" src="https://bandcamp.com/EmbeddedPlayer/{{release.data.type}}={{release.data.bandcampid}}/size=small/bgcol=111111/linkcol=ffffff/artwork=none/transparent=true/" seamless></iframe>
-        </div>
-        <div class="release-info">
-          {{release.data.description | safe}}
-
-          <ul class="release-links">
-            {% for extra in release.data.visualExtras %}
-              <li>
-                <span class="material-symbols-outlined">{{extra.symbol}}</span>
-                <a href="{{extra.url}}" class="release-link">{{extra.linkText}}</a>
-              </li>
-            {% endfor %}
-            <li>
-              <span class="material-symbols-outlined">album</span>
-              <a href="{{release.data.bandcampurl}}" class="release-link">Buy on Bandcamp</a>
-            </li>
-          </ul>
-        </div>
-      </div>
+      {% endif %}
     {% endfor %}
   </div>
 

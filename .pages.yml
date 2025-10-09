@@ -104,6 +104,7 @@ content:
     path: src/releases_collection
     type: collection
     fields:
+      - { name: isDraft, label: Draft, type: boolean, default: false }
       - { name: title, label: Title, type: string }
       - {
           name: image,
