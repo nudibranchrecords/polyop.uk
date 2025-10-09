@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Polyop - Slug Chug</title>
+    <meta name="description" content="Demo presented in Berlin @ Deadline Demoparty 2025"/>
+    <meta property="og:image" content="https://polyop.uk/slugchug/share.jpg?v=1f21222e70e2"/>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦑</text></svg>">
+    <style>
+
+      body {
+        background: black;
+      }
+
+      h1 {
+        margin-top: 0;
+      }
+
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+      }
+
+      .loading {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        inset: 0;
+        font-family: "Monaco", "Consolas", "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+        font-size: 1.5rem;
+        color: white;
+        z-index: 99;
+      }
+
+      .box {
+        font-size: 18px;
+        border: 1px solid white;
+        padding: 2rem;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.4);
+      }
+
+      .playing .box {
+        display: none;
+      }
+
+      .box h3 {
+        margin: 0 0 0.5rem;
+        font-size: 24px;
+        animation: blink 0.6s infinite;
+      }
+
+      .loading ul {
+        margin: 0;
+        padding: 0;
+      }
+
+      .loading li {
+        padding: 0;
+        list-style: none;
+        margin: 0;
+        position: relative;
+        opacity: 0.5;
+        text-align: center;
+      }
+
+      .loading li::after {
+        content: " .";
+      }
+
+      .loading li.loaded {
+        opacity: 1;
+      }
+
+      .loading li.loaded::after {
+        content: " ✓";
+      }
+
+      .credits {
+        font-size: 0.8em;
+      }
+
+      button {
+        z-index: 10;
+        padding: 10px 20px;
+        border: 2px solid white;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.1);
+        text-transform: uppercase;
+        color: white;
+        cursor: pointer;
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+        pointer-events: none;
+        font-family: inherit;
+
+      }
+
+      button span {
+        animation: blink 0.5s infinite;
+      }
+
+      button.loaded {
+        pointer-events: auto;
+      }
+
+      button.loaded span {
+        animation: none;
+      }
+
+      ul {
+        display: flex;
+      }
+
+      li {
+        flex: 1;
+      }
+
+      a {
+        color: white;
+      }
+
+      .cta {
+        margin-bottom: 0;
+        font-style: italic;
+        border-top: 1px solid white;
+        padding-top: 2rem;
+        margin-top: 2rem;
+      }
+    </style>
+    <script type="module" crossorigin src="./assets/index-CAV0QsL0.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CRAIJ56h.css">
+  </head>
+  <body>
+    <main class="container" id="root"></main>
+
+    <div class="loading">
+      <div class="box">
+        <h1>Polyop - Slug Chug</h1>
+        <p>Presented in Berlin @ Deadline Demoparty 2025</p>
+        <p class="credits">visuals: wanze, music: jacknode, slug model: ls3dfx</p>
+
+        <button id="play-button">
+          <span>Loading</span>
+        </button>
+        <ul>
+          <li id="item-code">Code</li>
+          <li id="item-slug">Slug</li>
+          <li id="item-audio">Audio</li>
+        </ul>
+        <p class="cta">
+          Head to <a href="http://polyop.uk">polyop.uk</a> for more sluggy fun!
+        </p>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>
