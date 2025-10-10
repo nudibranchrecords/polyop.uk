@@ -38,6 +38,7 @@
         font-size: 1.5rem;
         color: white;
         z-index: 99;
+        padding: 1rem;
       }
 
       .box {
@@ -46,6 +47,23 @@
         padding: 2rem;
         text-align: center;
         background: rgba(0, 0, 0, 0.4);
+      }
+
+      @media (max-width: 600px) {
+        .box {
+          font-size: 14px;
+          padding: 1rem;
+        }
+      }
+
+      .portrait-warning {
+        font-weight: bold;
+      }
+
+      @media (orientation: landscape) {
+        .portrait-warning {
+          display: none;
+        }
       }
 
       .playing .box {
@@ -64,6 +82,8 @@
       }
 
       .loading li {
+        font-size: 0.8em;
+        text-transform: uppercase;
         padding: 0;
         list-style: none;
         margin: 0;
@@ -73,7 +93,7 @@
       }
 
       .loading li::after {
-        content: " .";
+        content: " -";
       }
 
       .loading li.loaded {
@@ -132,11 +152,11 @@
         margin-bottom: 0;
         font-style: italic;
         border-top: 1px solid white;
-        padding-top: 2rem;
-        margin-top: 2rem;
+        padding-top: 1rem;
+        margin-top: 1rem;
       }
     </style>
-    <script type="module" crossorigin src="./assets/index-CAV0QsL0.js"></script>
+    <script type="module" crossorigin src="./assets/index-CJY_P6vY.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-CRAIJ56h.css">
   </head>
   <body>
@@ -147,6 +167,7 @@
         <h1>Polyop - Slug Chug</h1>
         <p>Presented in Berlin @ Deadline Demoparty 2025</p>
         <p class="credits">visuals: wanze, music: jacknode, slug model: ls3dfx</p>
+        <p class="portrait-warning">Rotate your device for the best experience</p>
 
         <button id="play-button">
           <span>Loading</span>
